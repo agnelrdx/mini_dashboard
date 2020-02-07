@@ -1,12 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Modal from 'react-modal'
+import './assets/index.css'
+import App from './App'
+import ForgotPassword from './ForgotPassword'
+import Dashboard from './Dashboard'
+import CustomerDetails from './CustomerDetails'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+Modal.setAppElement('#root')
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route exact path="/forgotpassword" component={ForgotPassword} />
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/customerdetails" component={CustomerDetails} />
+    </Switch>
+  </BrowserRouter>, 
+  document.getElementById('root')
+)
